@@ -12,6 +12,35 @@ namespace Bytebank.SistemaAgencia
         static void Main(string[] args)
         {
 
+            
+
+            Cliente carlos_1 = new Cliente();
+            carlos_1.Nome = "Carlos";
+            carlos_1.CPF = "458.623.120-03";
+            carlos_1.Profissao = "Designer";
+
+            Cliente carlos_2 = new Cliente();
+            carlos_2.Nome = "Carlos";
+            carlos_2.CPF = "458.623.120-03";
+            carlos_2.Profissao = "Designer";
+
+            ContaCorrente conta2 = new ContaCorrente(456, 87654);
+
+            if (carlos_1.Equals(carlos_2)) {
+
+                Console.WriteLine("São iguais");
+            }
+            else
+            {
+                Console.WriteLine("Não são iguais!!");
+            }
+
+            Console.ReadLine(); 
+
+
+
+
+            // testando toString e classe object no console write line
             Console.WriteLine("Olá, Mundo");
             Console.WriteLine(123);
             Console.WriteLine(10.5);
