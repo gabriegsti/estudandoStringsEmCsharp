@@ -12,11 +12,14 @@ namespace Bytebank.SistemaAgencia
         {
 
 
+            //Testando Contains, Startswith e EndsWith
+            string urlTeste = "https://www.bytebank.com/cambio";
+            int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
+            
+            Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));
+            Console.WriteLine(urlTeste.EndsWith("cambio/"));
 
-            string mensagemOrigem = "PALAVRA";
-            string termoBusca = "ra";
-            Console.WriteLine(teste2.IndexOf("Ra"));
-
+            Console.WriteLine(urlTeste.Contains("Bytebank"));
 
             Console.ReadLine();
 
@@ -31,12 +34,22 @@ namespace Bytebank.SistemaAgencia
             string valormoedaOrigem = extratorDeValores.GetValor("moedaOrigem");
             Console.WriteLine("Valor de moedaOrigem: " + valormoedaOrigem);
 
-            Console.WriteLine("Valor:" + extratorDeValores.GetValor("valor"));
+            Console.WriteLine("Valor:" + extratorDeValores.GetValor("VALOR"));
 
             Console.ReadLine();
 
 
 
+
+            // testando ToUpper e ToLower
+            string mensagemOrigem = "PALAVRA";
+            string termoBusca = "ra";
+            Console.WriteLine(mensagemOrigem.ToLower());
+
+            Console.WriteLine(termoBusca.ToUpper());
+
+
+            Console.ReadLine();
             //Testando o remove
             string testeRemocao = "primeiraParte&parteParaRemover";
             int indiceEComercial = testeRemocao.IndexOf('&');
