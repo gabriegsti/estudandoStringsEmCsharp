@@ -2,20 +2,61 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Bytebank.SistemaAgencia
-{
+{ 
     internal class Program
     {
         static void Main(string[] args)
         {
 
+            Console.WriteLine("Olá, Mundo");
+            Console.WriteLine(123);
+            Console.WriteLine(10.5);
+            Console.WriteLine(true);
+
+            Object conta = new ContaCorrente(456, 687876);
+            Object desenvolvedor = new Desenvolvedor("1234567890");
+            Console.WriteLine(conta);
+            Console.WriteLine(desenvolvedor);
+
+            string ContaToString = conta.ToString();
+
+            Console.WriteLine("Resultado: "+ ContaToString);
+
+            Console.ReadLine();
+        }
+
+        static void TestaString()
+        {
+
+
+            //string padrao = 
+            //    "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
+            //string padraoRepeticao =
+            //    "[0-9]{4,5}[-][0-9]{4}";
+            //string padraoRepeticaoComZero =
+            //    "[0-9]{4,5}-{0,1}[0-9]{4}";
+            string padraoRepeticaoCoringa =
+                "[0-9]{4,5}-?[0-9]{4}";
+            string textoDeTeste =
+                "Meu nome é Gabriel, me ligue em 94784-4546";
+
+            Match resultado = Regex.Match(textoDeTeste, padraoRepeticaoCoringa);
+
+            Console.WriteLine(resultado.Value);
+
+            Console.ReadLine();
+
+
+
 
             //Testando Contains, Startswith e EndsWith
             string urlTeste = "https://www.bytebank.com/cambio";
             int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
-            
+
             Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));
             Console.WriteLine(urlTeste.EndsWith("cambio/"));
 
@@ -30,7 +71,7 @@ namespace Bytebank.SistemaAgencia
 
             string valor = extratorDeValores.GetValor("moedaDestino");
             Console.WriteLine("Valor de moedaDestino: " + valor);
-            
+
             string valormoedaOrigem = extratorDeValores.GetValor("moedaOrigem");
             Console.WriteLine("Valor de moedaOrigem: " + valormoedaOrigem);
 
@@ -57,7 +98,7 @@ namespace Bytebank.SistemaAgencia
 
             Console.ReadLine();
 
-               
+
 
 
             // testando substring
@@ -94,11 +135,6 @@ namespace Bytebank.SistemaAgencia
 
             ExtratorValordeArgumentosURL extrator = new ExtratorValordeArgumentosURL("");
 
-
-            
-
-
-            Console.ReadLine();
         }
     }
 }
